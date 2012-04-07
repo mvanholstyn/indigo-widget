@@ -233,7 +233,6 @@ function hideBack() {
 
     back.style.display="none";
     front.style.display="block";
-    exitflip();
     if (window.widget)
         setTimeout ('widget.performTransition();', 0);
         
