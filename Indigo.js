@@ -70,19 +70,14 @@ function pausedRefresh() {
 //      <show> 
 //----------------------------------------------------------------------------
 function load() {	
-    name = IndigoWidgetName;
-    version = IndigoWidgetVersion;
+  name = IndigoWidgetName;
+  version = IndigoWidgetVersion;
     
-    IndigoDebug("load()");
+  IndigoDebug("load()");
     
-	// Create the 'Done' button on the backside
-	//var doneButton = document.getElementById('done');
-	//createGenericButton(doneButton, "Done", hideBack, 68);
-
 	window.resizeTo(IndigoWidgetInitialWidth, IndigoWidgetInitialHeight);
-	if (!window.widget)
-	{
-		show ();
+	if (!window.widget) {
+		show();
 	}
 }
 

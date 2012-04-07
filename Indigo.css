@@ -176,12 +176,6 @@ body {
     font-size: 12px;
 }
 
-#doneButton {
-    position: fixed;
-    top: 68px;
-    left: 275px;
-}
-
 #remoteServerInput {
     height: 50px;
 }
