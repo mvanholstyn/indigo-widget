@@ -1,40 +1,3 @@
-// File: IndigoWidget.js
-// Purpose: Logic and functionality for the Indigo home automation widget
-// Written by Andrew Turner (ajturner@highearthorbit.com)
-// Date: October 30, 2005
-// Version: 1.3
-// History: 
-//  1.3 - Added preferences for remote applescripting (Oct 30, 2005)
-//  1.2 - Added support for remote applescripting (Sept 23, 2005)
-//  1.1 - Documented code, added resizing, smoother slider bars
-//  1.0 - Initial Release (Sept 9, 2005)
-/*
-* Copyright (c) 2005, Andrew Turner, HighEarthOrbit software
-* All rights reserved.
-* Redistribution and use in source and binary forms, with or without
-* modification, are permitted provided that the following conditions are met:
-*
-*     * Redistributions of source code must retain the above copyright
-*       notice, this list of conditions and the following disclaimer.
-*     * Redistributions in binary form must reproduce the above copyright
-*       notice, this list of conditions and the following disclaimer in the
-*       documentation and/or other materials provided with the distribution.
-*     * Neither the name of Andrew Turner nor the
-*       names of its contributors may be used to endorse or promote products
-*       derived from this software without specific prior written permission.
-*
-* THIS SOFTWARE IS PROVIDED BY HIGHEARTHORBIT AND CONTRIBUTORS "AS IS" AND ANY
-* EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
-* WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
-* DISCLAIMED. IN NO EVENT SHALL THE REGENTS AND CONTRIBUTORS BE LIABLE FOR ANY
-* DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
-* (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
-* LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
-* ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
-* (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
-* SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-*/
-    
 var IndigoAppName_Original = "IndigoServer";
 var IndigoAppName = IndigoAppName_Original;
 var IndigoWidgetDebug = false;
@@ -55,7 +18,7 @@ var IndigoServerIP = "";
 var IndigoServerUsername = "";
 var IndigoServerPassword = "";
 var IndigoRemoteServer = false;
-//IndigoAppName = IndigoAppName + "\" of machine \"eppc://" + IndigoServerUsername + ":" + IndigoServerPassword + "@" + IndigoServerIP;
+
 // UI Handling
 //----------------------------------------------------------------------------
 // Function: showContent
@@ -68,8 +31,7 @@ var IndigoRemoteServer = false;
 // See also:
 //      <getDevices> <getActions> <getDevices>
 //----------------------------------------------------------------------------
-function showContent(contentName)
-{
+function showContent(contentName) {
     IndigoDebug("showContent( " + contentName + " )");
 
     if(contentName == "Devices")
@@ -94,10 +56,10 @@ function showContent(contentName)
 
 }
 
-function pausedRefresh()
-{
+function pausedRefresh() {
     showContent(currentView);    
 }
+
 //----------------------------------------------------------------------------
 // Function: load
 //  Load the widget for the first time. This is the "init"
@@ -107,8 +69,7 @@ function pausedRefresh()
 // See also:
 //      <show> 
 //----------------------------------------------------------------------------
-function load ()
-{	
+function load() {	
     name = IndigoWidgetName;
     version = IndigoWidgetVersion;
     
@@ -135,26 +96,26 @@ function load ()
 // See also:
 //      <load> <onhide> <showContent>
 //----------------------------------------------------------------------------
-function show ()
-{
+function show() {
 	IndigoDebug("show");
 	
     showContent(currentView);
     startTimer();
 }
-function startTimer()
-{
+
+function startTimer() {
 	if (timerInterval == null) {
         timerInterval = setInterval("showContent(currentView);", IndigoUpdateTimer * 1000);
     }
 }
-function stopTimer()
-{
+
+function stopTimer() {
 	if (timerInterval != null) {
         clearInterval(timerInterval);
         timerInterval = null;
 	}
 }
+
 //----------------------------------------------------------------------------
 // Function: onhide
 //  The dashboard has been minimized, hide the widget. Shut off the automatic 
@@ -163,10 +124,10 @@ function stopTimer()
 // See also:
 //      <load> <show> <onremove>
 //----------------------------------------------------------------------------
-function onhide()
-{
+function onhide() {
     stopTimer();
 }
+
 //----------------------------------------------------------------------------
 // Function: onremove
 //  The widget has been 'closed', clean up the timer and anything else.
@@ -176,22 +137,19 @@ function onhide()
 // See also:
 //      <load> <onhide> <show>
 //----------------------------------------------------------------------------
-function onremove()
-{
+function onremove() {
     if (timerInterval != null) {
         clearInterval(timerInterval);
         timerInterval = null;
     }
 }
 
-if (window.widget)
-{
+if (window.widget) {
     widget.onshow = show;
     widget.onhide = onhide;
     widget.onremove = onremove;
     
     updateFromPreferences();
-
 }
 
 //----------------------------------------------------------------------------
@@ -201,8 +159,7 @@ if (window.widget)
 // See also:
 //      <updatePreferences> 
 //----------------------------------------------------------------------------
-function updateFromPreferences()
-{
+function updateFromPreferences() {
     IndigoServerIP = widget.preferenceForKey("serverIP");
     IndigoServerUsername = widget.preferenceForKey("serverUsername");
     IndigoServerPassword = widget.preferenceForKey("serverPassword");
@@ -218,6 +175,7 @@ function updateFromPreferences()
     else
         IndigoAppName = IndigoAppName_Original;
 }
+
 //----------------------------------------------------------------------------
 // Function: showBack
 //  Show the back of the widget and hide the front.
@@ -225,11 +183,7 @@ function updateFromPreferences()
 // See also:
 //      <hideBack> 
 //----------------------------------------------------------------------------
-var currentWindowX;
-var currentWindowY; 
-function showBack()
-{           
-
+function showBack() {
     // stop the timer from updating
     stopTimer();
     alert(IndigoServerIP);
@@ -256,8 +210,8 @@ function showBack()
 
     if (window.widget)
         setTimeout ('widget.performTransition();', 0);  
-       
 }
+
 //----------------------------------------------------------------------------
 // Function: hideBack
 //  Hide the back of the widget and show the front.
@@ -265,8 +219,7 @@ function showBack()
 // See also:
 //      <hideBack> 
 //----------------------------------------------------------------------------
-function hideBack()
-{
+function hideBack() {
     //start the timer updating again
     startTimer();
      
