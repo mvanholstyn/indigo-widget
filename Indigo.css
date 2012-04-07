@@ -37,28 +37,20 @@ body {
     color: white;
 }
 
-#drawer {
-    position: relative;
-    height: 300px;
-    border: 1px solid #807FAE;
-    border-top: 0;
-    border-bottom: 0;
-}
-
 /* Bottom of the widget */
 #bottom {
-    height: 18px;
+    height: 12px;
     background-color: #9A99C8;
     border-radius: 0 0 10px 10px;
     border: 1px solid #807FAE;
     border-top: 0;
+    padding: 3px;
 }
 
 #resizer {
     width: 12px;
     height: 12px;
     float: right;
-    margin: 3px 3px 0 0;
     background-image: url(file:///System/Library/WidgetResources/resize.png);
     background-repeat: no-repeat;
     background-attachment: initial;
@@ -72,12 +64,12 @@ body {
 .flip {
     width: 13px;
     height: 13px;
-    margin: 3px 0 0 3px;
-    position: absolute;
+    float: left;
 }
 
 #flip {
     opacity: 0;
+    -webkit-transition: opacity 0.5s;
     background-image: url(file:///System/Library/WidgetResources/ibutton/white_i.png);
     background-repeat: no-repeat;
     background-attachment: initial;
@@ -99,6 +91,14 @@ body {
     background-color: transparent;
     z-index: 7999;
     background-position: 0% 0%;
+}
+
+#flip:hover #fliprollie {
+  display: block;
+}
+
+#front:hover #flip {
+  opacity: 1;
 }
 
 #statusbar {
@@ -172,6 +172,14 @@ body {
     position: fixed;
     top: 80px;
     left: 160px;
+}
+
+#drawer {
+    position: relative;
+    height: 300px;
+    border: 1px solid #807FAE;
+    border-top: 0;
+    border-bottom: 0;
 }
 
 div#container {

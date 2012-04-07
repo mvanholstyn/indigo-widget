@@ -15,8 +15,8 @@
   <script type="text/javascript" src="Parts/utilities.js" charset="utf-8"></script>
   <script type="text/javascript" src="Parts/setup.js" charset="utf-8"></script>
 </head>
-<body onload="load();" onmouseover="enterwindow(event);" onmouseout="exitwindow(event);">
-	<div id="front" onmousemove="mousemove(event);">
+<body onload="load();">
+	<div id="front">
 		<div id="top" class="open">
       <table id="navbar" cellspacing="0">
         <tbody>
@@ -44,14 +44,15 @@
 		<div id="drawer">
 			<div id="container">
 				<div id="content">
-		      <div id="contents" style="overflow: visible; position: relative; margin-right: 19px"></div>
+		      <div id="contents"></div>
 				</div>
 			</div>
 		</div>
 
 		<div id="bottom">
-			<div class="flip" id="fliprollie"></div>
-			<div class="flip" id="flip" onclick="showBack(event);" onmouseover="enterflip(event);" onmouseout="exitflip(event);"></div>
+		  <div class="flip" id="flip" onclick="showBack(event);">
+			  <div class="flip" id="fliprollie"></div>
+		  </div>
 			<div id="resizer" onmousedown="mouseDownResizer(event);"></div>
 	    <div id="statusbar"></div>
 		</div>

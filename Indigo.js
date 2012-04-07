@@ -290,109 +290,6 @@ function hideBack()
         setTimeout ('widget.performTransition();', 0);
         
 }
-var flipShown = false;
-
-var animation = {duration:0, starttime:0, to:1.0, now:0.0, from:0.0, firstElement:null, timer:null};
-function mousemove (event)
-{
-    if (!flipShown)
-    {
-        if (animation.timer != null)
-        {
-            clearInterval (animation.timer);
-            animation.timer  = null;
-        }
-
-        var starttime = (new Date).getTime() - 13;
-
-        animation.duration = 500;
-        animation.starttime = starttime;
-        animation.firstElement = document.getElementById ('flip');
-        animation.timer = setInterval ("animate();", 13);
-        animation.from = animation.now;
-        animation.to = 1.0;
-        animate();
-        flipShown = true;
-    }
-}
-
-
-function mouseexit (event)
-{
-    if (flipShown)
-    {
-        // fade in the info button
-        if (animation.timer != null)
-        {
-            clearInterval (animation.timer);
-            animation.timer  = null;
-        }
-       var starttime = (new Date).getTime() - 13;
-
-        animation.duration = 500;
-        animation.starttime = starttime;
-        animation.firstElement = document.getElementById ('flip');
-        animation.timer = setInterval ("animate();", 13);
-        animation.from = animation.now;
-        animation.to = 0.0;
-        animate();
-        flipShown = false;
-    }
-}
-
-function animate()
-{
-    var T;
-    var ease;
-    var time = (new Date).getTime();
-
-    T = limit_3(time-animation.starttime, 0, animation.duration);
-
-    if (T >= animation.duration)
-    {
-        clearInterval (animation.timer);
-        animation.timer = null;
-        animation.now = animation.to;
-    }
-    else
-    {
-        ease = 0.5 - (0.5 * Math.cos(Math.PI * T / animation.duration));
-        animation.now = computeNextFloat (animation.from, animation.to, ease);
-    }
-
-    animation.firstElement.style.opacity = animation.now;
-
-}
-
-
-function limit_3 (a, b, c)
-{
-    return a < b ? b : (a > c ? c : a);
-}
-
-function computeNextFloat (from, to, ease)
-{
-    return from + (to - from) * ease;
-}
-function enterflip(event)
-{
-    document.getElementById('fliprollie').style.display = 'block';
-}
-function exitflip(event)
-{
-    document.getElementById('fliprollie').style.display = 'none';
-}
-
-function enterwindow(event)
-{
-    document.getElementById('flip').style.display = 'block';
-
-}
-function exitwindow(event)
-{
-    document.getElementById('flip').style.display = 'none';
-
-}
 
 //----------------------------------------------------------------------------
 // Function: changeDim
@@ -405,8 +302,7 @@ function exitwindow(event)
 // See also:
 //      <setDeviceValue>
 //----------------------------------------------------------------------------
-function changeDim(slider)
-{
+function changeDim(slider) {
     var slider_value = document.getElementById(slider.getAttribute("name") + '_value');
     slider_value.innerText = slider.value + "%";
     
@@ -432,8 +328,7 @@ function changeDim(slider)
 // See also:
 //      <getDevices>
 //----------------------------------------------------------------------------
-function createDeviceRow (title, state, supportsDim, value, even)
-{
+function createDeviceRow (title, state, supportsDim, value, even) {
 	var row = document.createElement ('div');
 	row.setAttribute ('class', 'row ' + (even ? 'light' : 'dark'));
 	
@@ -512,6 +407,7 @@ function createDeviceRow (title, state, supportsDim, value, even)
 
 	return row;	
 }
+
 //----------------------------------------------------------------------------
 // Function: createActionRow
 //  Creates a new row with an Indigo Action Group
@@ -526,8 +422,7 @@ function createDeviceRow (title, state, supportsDim, value, even)
 // See also:
 //       <createDeviceRow> <createVariableRow>
 //----------------------------------------------------------------------------
-function createActionRow (title, even)
-{
+function createActionRow (title, even) {
 	var row = document.createElement ('div');
 	row.setAttribute ('class', 'row ' + (even ? 'light' : 'dark'));
 	
@@ -540,6 +435,7 @@ function createActionRow (title, even)
 
 	return row;	
 }
+
 //----------------------------------------------------------------------------
 // Function: createVariableRow
 //  Creates a new row with an Indigo Variable
@@ -555,8 +451,7 @@ function createActionRow (title, even)
 // See also:
 //       <createDeviceRow> <createActionRow>
 //----------------------------------------------------------------------------
-function createVariableRow (title, state, even)
-{
+function createVariableRow (title, state, even) {
 	var row = document.createElement ('div');
 	row.setAttribute ('class', 'row ' + (even ? 'light' : 'dark'));
 	
@@ -608,8 +503,7 @@ function createVariableRow (title, state, even)
 // Returns:
 //  
 //----------------------------------------------------------------------------
-function clickOnDevice(event, div)
-{
+function clickOnDevice(event, div) {
     IndigoDebug("Click On Device: " + div.getAttribute("the_device"));
 
     if(div.getAttribute("state") == "true")
@@ -629,13 +523,13 @@ function clickOnDevice(event, div)
 //  output when IndigoWidgetDebug is true.
 //
 //----------------------------------------------------------------------------
-function IndigoDebug(debugOutput)
-{
+function IndigoDebug(debugOutput) {
     if(IndigoWidgetDebug)
     {
         alert("IndigoWidget: " + debugOutput);
     }
 }
+
 //////////////////////
 // Indigo Functions //
 //////////////////////
@@ -648,8 +542,7 @@ function IndigoDebug(debugOutput)
 //
 //  obj - widget.system() command object, has obj.outputString and obj.errorString
 //----------------------------------------------------------------------------
-function endHandler(obj)
-{
+function endHandler(obj) {
     IndigoDebug("endHandler status: " + obj.status);
     IndigoDebug("endHandler output:" + obj.outputString);
     IndigoDebug("endHandler error: " + obj.errorString);
@@ -663,8 +556,7 @@ function endHandler(obj)
     // do a recent update check
     recentUpdateInterval = setTimeout("pausedRefresh();", recentUpdateTime * 1000);
 }
-function IndigoAppleScript(asCommand, callbackHandler, refreshingUI)
-{
+function IndigoAppleScript(asCommand, callbackHandler, refreshingUI) {
     asCommand = "/usr/bin/osascript" + asCommand;
     widget.system(asCommand, callbackHandler);
    	spinLockIncrement(refreshingUI);
@@ -703,8 +595,7 @@ function turnDeviceOnOff(deviceName, deviceState) {
 // Returns:
 //  
 //----------------------------------------------------------------------------
-function setDeviceValue(deviceName, deviceValue)
-{
+function setDeviceValue(deviceName, deviceValue) {
     IndigoDebug("Dimming: " + deviceName + " to " + deviceValue);
 
 
@@ -767,8 +658,8 @@ function getDevices() {
             + " -e 'end tell'";
     IndigoAppleScript(asCommand, getDevicesHandler, true);
 }
-function getDevicesHandler(obj)
-{
+
+function getDevicesHandler(obj) {
     spinLockDecrement();
     if(obj != null)
     {
@@ -823,9 +714,8 @@ function getDevicesHandler(obj)
 
     }
     }
-    
-
 }
+
 //----------------------------------------------------------------------------
 // Function: getActions
 //  Gets all of the Indigo action groups that have checked "Show in UI" and adds them
@@ -856,8 +746,8 @@ function getActions() {
         + " -e 'end tell'";
     IndigoAppleScript(asCommand, getActionsHandler, true);
 }
-function getActionsHandler(obj)
-{
+
+function getActionsHandler(obj) {
     spinLockDecrement();
     if(obj != null)
     {
@@ -899,6 +789,7 @@ function getActionsHandler(obj)
     }
     }
 }
+
 //----------------------------------------------------------------------------
 // Function: getVariables
 //  Gets all of the Indigo variables and adds them
@@ -930,8 +821,8 @@ function getVariables() {
         + " -e 'end tell'";
     IndigoAppleScript(asCommand, getVariablesHandler, true);
 }
-function getVariablesHandler(obj)
-{
+
+function getVariablesHandler(obj) {
     spinLockDecrement();
     if(obj != null)
     {
@@ -974,8 +865,7 @@ function getVariablesHandler(obj)
     }
 }
 
-function spinLockFree()
-{
+function spinLockFree() {
     if(numTransactions == 0)
         return true;
     else
@@ -983,8 +873,7 @@ function spinLockFree()
     
     return true;
 }
-function spinLockIncrement(refreshingUI)
-{
+function spinLockIncrement(refreshingUI) {
     // clean up possible "zombie" comms that weren't accounted for and rec'd
     if(numTransactions < 0)
         numTransactions = 0;
@@ -995,8 +884,7 @@ function spinLockIncrement(refreshingUI)
     statusbar.innerHTML = refreshingUI ? "updating..." : "sending...";
 }
 
-function spinLockDecrement()
-{
+function spinLockDecrement() {
     // only decrement the counter if we expected some incoming message
     numTransactions--;
     if(numTransactions <= 0)
@@ -1006,27 +894,17 @@ function spinLockDecrement()
        numTransactions = 0;
     }
 }
+
 /**
  *	Miscellaneous utilities
  */
- 
-function getObj(id) { // retrieves an element
+function getObj(id) {
 	return document.getElementById(id);
 }
 
-function showObj(id) { // shows an element
-	getObj(id).style.display = 'block';
-}
-
-function hideObj(id) { // hides an element
-	getObj(id).style.display = 'none';
-}
-
 function wrapURL(URL) {
-    if (window.widget)
-        widget.openURL(URL);
-    else
-        window.location = URL;
+  if (window.widget)
+    widget.openURL(URL);
+  else
+    window.location = URL;
 }
-
-
