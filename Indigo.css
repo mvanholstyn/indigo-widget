@@ -58,20 +58,6 @@ body {
   padding: 3px 3px 2px 3px;
 }
 
-#resizer {
-    width: 12px;
-    height: 12px;
-    float: right;
-    background-image: url(file:///System/Library/WidgetResources/resize.png);
-    background-repeat: no-repeat;
-    background-attachment: initial;
-    -khtml-background-clip: initial;
-    -khtml-background-origin: initial;
-    background-color: transparent;
-    -apple-dashboard-region: dashboard-region(control rectangle);
-    background-position: 0% 0%;
-}
-
 .flip {
     width: 13px;
     height: 13px;
