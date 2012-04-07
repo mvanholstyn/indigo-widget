@@ -40,7 +40,7 @@ var IndigoAppName = IndigoAppName_Original;
 var IndigoWidgetDebug = false;
 var currentView = "Devices";
 var IndigoWidgetName = "IndigoWidget";
-var IndigoWidgetVersion = "1.3.2";
+var IndigoWidgetVersion = "2.0";
 var IndigoUpdateTimer = "20"; // seconds
 var timerInterval;
 var numTransactions = 0;
@@ -81,8 +81,6 @@ function showContent(contentName)
     else
         getDevices();
 
-    calculateAndShowThumb(document.getElementById("contents"));
-     
     // only update the nav item if it is changing   
     if(contentName != currentView)
     {
@@ -120,10 +118,6 @@ function load ()
 	//var doneButton = document.getElementById('done');
 	//createGenericButton(doneButton, "Done", hideBack, 68);
 
-    // Create the scrollbar
-	scrollerInit(getObj("myScrollBar"), getObj("myScrollTrack"), getObj("myScrollThumb"));
-	calculateAndShowThumb(document.getElementById("contents"));
-	
 	window.resizeTo(IndigoWidgetInitialWidth, IndigoWidgetInitialHeight);
 	if (!window.widget)
 	{

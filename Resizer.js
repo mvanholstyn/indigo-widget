@@ -64,10 +64,6 @@ function mouseMoveResizer(event)
 	with (getObj("drawer")) {	// resizes the container
 		style.height = offsetHeight + deltaY + "px";
 	}
-	with (getObj("myScrollBar")) {	// resizes the scrollbar
-		style.height = offsetHeight + deltaY + "px";
-	}
-	calculateAndShowThumb(getObj("contents"));
 
 	event.stopPropagation();
 	event.preventDefault();
