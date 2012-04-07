@@ -115,6 +115,8 @@ body {
     display: none;
     width: 360px;
     height: 250px;
+    background-color: #474747;
+    border-radius: 10px;
 }
 
 #backcontents {
@@ -199,23 +201,11 @@ div#content {
 }
 
 .light {
-    background-image: url(Images/light.png);
-    background-repeat: repeat-x;
-    background-attachment: initial;
-    -khtml-background-clip: initial;
-    -khtml-background-origin: initial;
-    background-color: initial;
-    background-position: 0% 0%;
+    background-color: #EBEDF6;
 }
 
 .dark {
-    background-image: url(Images/dark.png);
-    background-repeat: repeat-x;
-    background-attachment: initial;
-    -khtml-background-clip: initial;
-    -khtml-background-origin: initial;
-    background-color: initial;
-    background-position: 0% 0%;
+    background-color: #CAD5EA;
 }
 
 .title {
