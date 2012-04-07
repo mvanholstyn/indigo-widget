@@ -179,29 +179,12 @@ body {
     left: 160px;
 }
 
-#drawer {
-    position: relative;
-    height: 300px;
-}
-
-div#container {
-    background-color: rgb(153, 153, 204);
-    height: 100%;
-    width: 100%;
-    overflow: hidden;
-}
-
 div#content {
     overflow: scroll;
-    height: 298px;
-    margin-top: 0px;
-    margin-right: 3px;
-    margin-bottom: 0px;
-    margin-left: 3px;
-    border-width: 1px;
-    border-style: solid;
-    border-color: rgb(102, 102, 153);
-    background-color: rgb(255, 255, 255);
+    min-height: 150px;
+    margin: 0 3px;
+    border: 1px solid #807FAE;
+    background-color: #fff;
 }
 
 .row {

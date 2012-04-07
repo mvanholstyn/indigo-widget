@@ -61,9 +61,6 @@ function mouseMoveResizer(event)
 	with (getObj("content")) {	// resizes the container
 		style.height = offsetHeight - 2 + deltaY + "px";
 	}
-	with (getObj("drawer")) {	// resizes the container
-		style.height = offsetHeight + deltaY + "px";
-	}
 
 	event.stopPropagation();
 	event.preventDefault();
