@@ -48,95 +48,13 @@ body {
 
 /* Top of the widget */
 #top {
-    height: 57px;
+    height: 41px;
     z-index: 200;
-}
-
-#top.closed #top-left {
-    background-image: url(Images/top-left.png);
-    background-repeat: no-repeat;
-    background-attachment: initial;
-    -khtml-background-clip: initial;
-    -khtml-background-origin: initial;
-    background-color: transparent;
-    padding-left: 200px;
-    height: 57px;
-    background-position: 0% 0%;
-}
-
-#top.closed #top-right {
-    background-image: url(Images/top-right.png);
-    background-repeat: no-repeat;
-    background-attachment: initial;
-    -khtml-background-clip: initial;
-    -khtml-background-origin: initial;
-    background-color: transparent;
-    padding-right: 59px;
-    height: 57px;
-    background-position: 100% 0%;
-}
-
-#top.closed #top-filler {
-    background-image: url(Images/top-filler.png);
-    background-repeat: repeat-x;
-    background-attachment: initial;
-    -khtml-background-clip: initial;
-    -khtml-background-origin: initial;
-    background-color: transparent;
-    height: 57px;
-    background-position: 0% 0%;
-}
-
-#top.open #top-left {
-    background-image: url(Images/top-left-open.png);
-    background-repeat: no-repeat;
-    background-attachment: initial;
-    -khtml-background-clip: initial;
-    -khtml-background-origin: initial;
-    background-color: transparent;
-    padding-left: 200px;
-    height: 47px;
-    background-position: 0% 0%;
-}
-
-#top.open #top-right {
-    background-image: url(Images/top-right-open.png);
-    background-repeat: no-repeat;
-    background-attachment: initial;
-    -khtml-background-clip: initial;
-    -khtml-background-origin: initial;
-    background-color: transparent;
-    padding-right: 59px;
-    height: 47px;
-    background-position: 100% 0%;
-}
-
-#top.open #top-filler {
-    background-image: url(Images/top-filler-open.png);
-    background-repeat: repeat-x;
-    background-attachment: initial;
-    -khtml-background-clip: initial;
-    -khtml-background-origin: initial;
-    background-color: transparent;
-    height: 47px;
-    background-position: 0% 0%;
-}
-
-/************
- * Titlebar *
- ************/
-#titlebar {
-    float: right;
-    position: relative;
-    margin-right: 60px;
-    margin-top: 14px;
-    width: 80px;
-    font: normal normal normal 20px/normal 'Century Gothic', 'Lucida Grande', Verdana, sans-serif;
-    font-weight: lighter;
-    color: purple;
-    text-align: right;
-    cursor: pointer;
-    line-height: 10px;
+    background-color: #9A99C8;
+    margin: 0 9px;
+    border-radius: 10px 10px 0 0;
+    border: 1px solid #807FAE;
+    border-bottom: 0;
 }
 
 /**********
