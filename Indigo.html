@@ -18,27 +18,17 @@
 <body onload="load();">
 	<div id="front">
 		<div id="top" class="open">
-      <table id="navbar" cellspacing="0">
-        <tbody>
-          <tr align="center">
-            <td id="DevicesNavText" class="navtextSelected" onclick="showContent('Devices');">
-              <div class="left"></div>
-              <div class="navtext">Devices</div>
-              <div class="right"></div>
-            </td>
-            <td id="ActionsNavText" class="navtext" onclick="showContent('Actions');">
-              <div class="left"></div>
-              <div class="navtext">Actions</div>
-              <div class="right"></div>
-            </td>
-            <td id="VariablesNavText" class="navtext" onclick="showContent('Variables');">
-              <div class="left"></div>
-              <div class="navtext">Variables</div>
-              <div class="right"></div>
-            </td>
-          </tr>
-        </tbody>
-      </table>
+      <div id="navbar" class="clearfix">
+        <div id="DevicesNavText" class="navtextSelected" onclick="showContent('Devices');">
+          <div class="navtext">Devices</div>
+        </div>
+        <div id="ActionsNavText" class="navtext" onclick="showContent('Actions');">
+          <div class="navtext">Actions</div>
+        </div>
+        <div id="VariablesNavText" class="navtext" onclick="showContent('Variables');">
+          <div class="navtext">Variables</div>
+        </div>
+      </div>
 		</div>
 
 		<div id="drawer">
