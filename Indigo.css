@@ -39,7 +39,7 @@ body {
 
 #drawer {
     position: relative;
-    height: 200px;
+    height: 300px;
     border: 1px solid #807FAE;
     border-top: 0;
     border-bottom: 0;
@@ -181,7 +181,7 @@ div#container {
 
 div#content {
     overflow: hidden;
-    height: 198px;
+    height: 298px;
     margin-top: 0px;
     margin-right: 3px;
     margin-bottom: 0px;

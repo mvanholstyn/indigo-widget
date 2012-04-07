@@ -45,7 +45,7 @@ var IndigoUpdateTimer = "20"; // seconds
 var timerInterval;
 var numTransactions = 0;
 var IndigoWidgetInitialWidth = 381;
-var IndigoWidgetInitialHeight = 280;
+var IndigoWidgetInitialHeight = 380;
 
 var recentUpdateInterval;
 var recentUpdateTime = 2;
