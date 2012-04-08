@@ -31,6 +31,7 @@ body {
 }
 
 #navbar {
+  display: block;
   padding: 3px;
   font-weight: lighter;
   color: #fff;
@@ -54,15 +55,10 @@ body {
   box-shadow: #333 0 0 3px 3px inset;
 }
 
-#bottom {
-  display: block;
-  padding: 3px;
-}
-
 .flip {
   width: 13px;
   height: 13px;
-  float: left;
+  float: right;
   cursor: pointer;
 }
 
@@ -102,7 +98,7 @@ body {
 
 #statusbar {
     float: right;
-    margin-right: 40px;
+    margin-right: 5px;
     font: normal normal normal 12px/normal 'Lucida Grande';
     font-weight: normal;
     color: white;
